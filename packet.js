@@ -13,6 +13,14 @@
 // Define function: fib(n)
 // Return the nth number in the fibonacci sequence.
 
+function fib(n){
+    if (n < 2) {
+        return 1;
+    } else {
+        return fib(n - 2) + fib(n - 1);
+    }
+}
+//console.log(fib(7));
 
 
 // 2. Bubble Sort
@@ -20,6 +28,13 @@
 // Use the bubble sort algorithm to sort the array.
 // Return the sorted array.
 
+function bubbleSort(numArray){
+    let arr = numArray;
+
+    for(let i=0;i<arr.length;i++){
+
+    }
+}
 
 
 // 3. Reverse String
