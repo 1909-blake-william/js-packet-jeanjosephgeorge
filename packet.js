@@ -78,10 +78,28 @@ console.log(factorial(6));
 // Return the substring contained between offset and (offset + length) inclusively.
 // If incorrect input is entered, use the alert function and describe why the input was incorrect.
 
+function substring(someStr, length, offset){
+
+    let arr = someStr.split('');
+    let newArr = []
+    
+    if(offset+length > someStr.length){
+        return alert('Incompatible values');
+    } else {
+        for(let i = offset; i<= offset+length; i++){
+            newArr.push(arr[i]);
+        }    
+    }
+    return newArr.join('');
+}
+console.log("\nSOLUTION 5:")
+console.log(substring("0123456789", 4, 4));
+
 // 6. Even Number
 // Define function: isEven(someNum)
 // Return true if even, false if odd.
 // Do not use % operator.
+
 
 // 7. Palindrome
 // Define function isPalindrome(someStr)
