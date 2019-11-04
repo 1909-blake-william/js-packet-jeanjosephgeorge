@@ -20,7 +20,8 @@ function fib(n) {
     return fib(n - 2) + fib(n - 1);
   }
 }
-//console.log(fib(7));
+console.log("\nSOLUTION 1:");
+console.log(fib(7));
 
 // 2. Bubble Sort
 // Define function: bubbleSort(numArray)
@@ -44,16 +45,33 @@ for (let x = 0; x < arr.length; x++) {
     }
 return arr;
 } 
-
+console.log("\nSOLUTION 2")
 console.log(bubbleSort([7, 2, 1, 23, 7, 3, 2, 6]));
 
 // 3. Reverse String
 // Define function: reverseStr(someStr)
 // Reverse and return the String.
 
+function reverseStr(someStr){
+    let newStr = someStr.split('').reverse().join('');
+    return newStr;
+}
+console.log("\nSOLUTION 3:")
+console.log(reverseStr("Jean"));
+
 // 4. Factorial
 // Define function: factorial(someNum)
 // Use recursion to compute and return the factorial of someNum.
+
+function factorial(someNum){
+    if(someNum <= 1){
+        return 1;
+    } else {
+        return (someNum) * factorial(someNum-1);
+    }
+}
+console.log("\nSOLUTION 4:")
+console.log(factorial(6));
 
 // 5. Substring
 // Define function substring(someStr, length, offset)
