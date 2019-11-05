@@ -156,6 +156,7 @@ console.log(isPalindrome("mangnam"))
 //  ***
 //   *
 
+
 // 9. Object literal
 // Define function traverseObject(someObj)
 // Print every property and it's value.
@@ -175,6 +176,14 @@ console.log(traverseObject({a:1, b:2, c:3}))
 // Delete the third element in the array.
 // Print length
 // The lengths should be the same.
+function deleteElement(someArr){
+console.log("The original length of the array: " + someArr.length);
+someArr.splice(2,1,null); 
+console.log(someArr);
+console.log("The length of the array after element is deleted: " + someArr.length);
+}
+console.log("\nSOLUTION 10:");
+deleteElement([1,2,3,4,5,6])
 
 // 11. Splice Element
 // Define function spliceElement(someArr)
@@ -182,6 +191,13 @@ console.log(traverseObject({a:1, b:2, c:3}))
 // Splice the third element in the array.
 // Print length
 // The lengths should be one less than the original length.
+function spliceElement(someArr){
+    console.log("The original length of the array: " + someArr.length);
+    someArr.splice(2,1);    
+    console.log("The length of the array after element is deleted: " + someArr.length);
+    }
+    console.log("\nSOLUTION 11:");
+    spliceElement([1,2,3,4,5,6])
 
 // 12. Defining an object using a constructor
 // Define a function Person(name, age)
