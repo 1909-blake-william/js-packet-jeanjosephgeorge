@@ -100,10 +100,39 @@ console.log(substring("0123456789", 4, 4));
 // Return true if even, false if odd.
 // Do not use % operator.
 
+function isEven(someNum){
+    let sn = someNum.toString();
+    let vl = (sn[sn.length-1]);
+    
+    if (vl == 1 || vl == 3 || vl == 5 || vl == 7 || vl ==9){
+        console.log(`The number ${someNum} is odd`)
+    } else {
+        console.log(`The number ${someNum} is even`)
+    }
+}
+console.log('\nSOLUTION 6:')
+isEven(7);
 
 // 7. Palindrome
 // Define function isPalindrome(someStr)
 // Return true if someStr is a palindrome, otherwise return false
+function isPalindrome(someStr){
+    let value;
+
+    for (let i = 0; i<someStr.length/2; i++){
+        if(someStr[i] ==  someStr[someStr.length-1-i]){
+            value = true
+            continue
+        } else {
+            value = false;
+            break;
+        }
+    }
+    return value;
+}
+console.log("\nSOLUTION 7:")
+console.log(isPalindrome("mangnam"))
+
 
 // 8. Shapes
 // Define function: printShape(shape, height, character)
@@ -149,8 +178,34 @@ console.log(substring("0123456789", 4, 4));
 // Define a function Person(name, age)
 // The following line should set a Person object to the variable john:
 // 	let john = new Person("John", 30);
+function Person(name, age){
+    this.name = name;
+    this.age = age;
+}
+let john = new Person("John", 30);
+
+console.log("\nSOLUTION 12:")
+console.log(`The name I've set is ${john.name} & the age parameter is ${john.age}`)
 
 // 13. Defining an object using an object literal
 // Define function getPerson(name, age)
 // The following line should set a Person object to the variable john:
 // 	let john = getPerson("John", 30);
+
+function getPerson(name,age){
+    let nName = name;
+    let nAge = age;
+
+    this.name = function getName(){
+        return nName;
+    }
+
+    this.age = function getAge(){
+        return nAge;
+    }
+}
+
+let jean = new getPerson("Jean",35);
+
+console.log("\nSOLUTION 13:")
+console.log(`The name I've set is ${jean.name()} & my age is ${jean.age()}`);
