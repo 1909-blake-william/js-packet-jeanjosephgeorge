@@ -159,6 +159,15 @@ console.log(isPalindrome("mangnam"))
 // 9. Object literal
 // Define function traverseObject(someObj)
 // Print every property and it's value.
+function traverseObject(someObj){
+    let newObject = someObj
+
+    for (let element in newObject){
+        console.log(`${element} and the value is ${newObject[element]}`);
+    }
+}
+console.log("\nSOLUTION 9:");
+console.log(traverseObject({a:1, b:2, c:3}))
 
 // 10. Delete Element
 // Define function deleteElement(someArr)
