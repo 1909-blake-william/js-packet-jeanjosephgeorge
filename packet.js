@@ -155,7 +155,41 @@ console.log(isPalindrome("mangnam"))
 // *****
 //  ***
 //   *
+function printShape(shape, height, character){
+    let h = height;
+    let c = character;
+    let line = "";
+    let sq ="";
 
+    switch (shape.toLowerCase()) {
+        case "square":
+            
+            for (let i = 0; i<h; i++){
+                line= line+c;
+            }
+            for (let a = 0; a<h; a++){
+                console.log(line);
+            }
+            break;
+        case "triangle":
+            for(let b = 0; b<h; b++){
+                
+            }
+            
+            break;
+        case "diamond":
+            
+            break;
+    
+        default:
+            console.log("Invalid Shape Entry");
+            break;
+    }
+}
+
+console.log("\nSOLUTION 8:\nSquare")
+printShape("sQUAre", 6, '%');
+printShape("triangle", 5, '$');
 
 // 9. Object literal
 // Define function traverseObject(someObj)
