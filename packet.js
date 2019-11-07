@@ -159,7 +159,7 @@ function printShape(shape, height, character){
     let h = height;
     let c = character;
     let line = "";
-    let sq ="";
+    let space ="";
 
     switch (shape.toLowerCase()) {
         case "square":
@@ -173,12 +173,21 @@ function printShape(shape, height, character){
             break;
         case "triangle":
             for(let b = 0; b<h; b++){
-                
+                line = line+c;
+                console.log(line);   
             }
             
             break;
         case "diamond":
+
+
+            function space(num){
+
+            }
             
+            function symbol(num2){
+
+            }
             break;
     
         default:
@@ -187,9 +196,12 @@ function printShape(shape, height, character){
     }
 }
 
-console.log("\nSOLUTION 8:\nSquare")
+console.log("\nSOLUTION 8:\n\nSquare")
 printShape("sQUAre", 6, '%');
+console.log("\nTriangle");
 printShape("triangle", 5, '$');
+console.log(`\nDiamond`)
+printShape("diamond",5,"*");
 
 // 9. Object literal
 // Define function traverseObject(someObj)
