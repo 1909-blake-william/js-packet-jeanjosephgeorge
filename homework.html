@@ -136,7 +136,11 @@
     // Define function getHobbies()
     // Find all checked options in the 'skills' select element.
     // Print the value and the contents.
-    
+    function getHobbies(){
+      let x = document.querySelectorAll('[name=skills] > [selected="selected"]');
+      console.log(x.forEach(element => console.log(element.innerHTML)));
+    }
+    //getHobbies()
 
 
     // 5. Custom Attribute
@@ -144,7 +148,15 @@
     // Find all elements with "data-customAttr" attribute
     // Print the value of the attribute.
     // Print the element that has the attribute.
-
+    function getCustomAttribute(){
+      let x = document.querySelectorAll('[data-customAttr]');
+      console.log(x);
+      x.forEach(element => {
+        console.log(`The node of type ${element.nodeName} contains the value ${element.innerHTML}`)
+      })
+      
+    }
+    //getCustomAttribute()
 
     // 6. Sum Event
     // Regarding these elements:
@@ -155,12 +167,35 @@
     // Add <input> element values.
     // Put the sum in the <span> element.
     // If values cannot be added, put "Cannot add" in the <span> element
+    document.getElementById('num1').addEventListener("change", sum);
+    document.getElementById('num2').addEventListener("change", sum);
+
+    function sum(){
+    let x= document.getElementById('num1').value;
+    let y= document.getElementById('num2').value;
+
+    x2 = Number(x);
+    y2 = Number(y);
+
+    if(!Number.isNaN(x2) || !Number.isNaN(y2)){
+      document.getElementById('sum').innerHTML = 'Cannot add'
+    } else {
+    document.getElementById('sum').innerHTML = (x2+y2);
+    }
+}
 
 
     // 7. Skills Event
     // When user selects a skill, create an alert with a message similar to:
     // 	"Are you sure CSS is one of your skills?"
     // NOTE: no alert should appear when user deselects a skill.
+
+    let skills = document.querySelector('select[name = skills]');
+    skills.addEventListener('change',()=>{
+      skill = skills.selectedOptions[0].innerHTML;
+      alert(`Are you sure that ${skill} is one of your skills?`)
+    })
+
 
 
     // 8. Favorite Color Event
@@ -169,12 +204,53 @@
     // 	"So you like green more than blue now?"
     // In this example, green is the new value and blue is the old value.
     // Make the background color (of all favoriteColor radio buttons) the newly selected favoriteColor
+    let favColorRadios = document.querySelectorAll('input[name="favoriteColor"]');
+let oldColor = getCheckedColorText();
 
+favColorRadios.forEach((colorRadio) => {
+    colorRadio.addEventListener('change', () => {
+        let newColorRadio = getCheckedColorRadio();
+        let newColor = getCheckedColorText();
+        let newColorAttr = newColorRadio.value;
+        favColorRadios.forEach((ele) => changeRadioBackgroundColor(ele, newColorAttr));
+        alert(`So you like ${newColor} more than ${oldColor} now?`);
+        oldColor = newColor;
+    })
+});
+
+function getCheckedColorRadio() {
+    let checkedColorRadio = document.createElement('input');
+    favColorRadios.forEach((colorRadio) => {
+        if (colorRadio.checked) {
+            checkedColorRadio = colorRadio;
+        }
+    })
+    return checkedColorRadio;
+}
+
+function getCheckedColorText() {
+    let checkedColorRadio = getCheckedColorRadio();
+    return checkedColorRadio.nextSibling ? checkedColorRadio.nextSibling.textContent : 'Anything';
+    // Alternate guard operator verion. Will return null instead of 'Anything':
+    // return checkedColorRadio.nextSibling && checkedColorRadio.nextSibling.textContent; 
+}
+
+function changeRadioBackgroundColor(colorRadio, newColorAttribute) {
+    let replacementNode = document.createElement('span');
+    let colorText = colorRadio.nextSibling.textContent;
+    replacementNode.innerHTML = `<span style="background-color:${newColorAttribute}">${colorText}</span>`;
+    colorRadio.nextSibling.replaceWith(replacementNode);
+}
 
     // 9. Show/Hide Event
     // When user hovers over an employees name:
     // 	Hide the name if shown.
     // 	Show the name if hidden.
+    function showHideEvent() {
+      Array.from(document.getElementsByClassName("empName")).forEach(name=>{
+        name.setAttribute('onmouseover', `(()=>{ ((this.style.color==='black')?this.style.color='white':this.style.color='black') }).call()`)});
+    }
+    showHideEvent();
 
 
     // 10. Current Time
@@ -183,17 +259,70 @@
     // Show the current time in this element in this format: 9:05:23 AM
     // The time should be accurate to the second without having to reload the page.
 
+    function setTime(){
+    let d = new Date();
+    let hr = d.getHours();
+    let post = 'AM';
+    let preMinute = '';
+    let preSecond = '';
+    if (hr>12){
+      hr = hr-12;
+      post = 'PM'
+    }
+    let min = d.getMinutes();
+    if(min<10){
+      preMinute = 0
+    }
+    let sec = d.getSeconds();
+    if(sec<10){
+      preSecond = 0
+    }
+      document.getElementById('currentTime').innerText = `${hr}:${preMinute}${min}:${preSecond}${sec} ${post}`
+    }
+
+    let playTime = setInterval(setTime, 1000);
+
 
     // 11. Delay
     // Regarding this element:
     // 	<p id="helloWorld">Hello, World!</p>
     // Three seconds after a user clicks on this element, change the text to a random color.
 
+      let helloWorld = document.getElementById('helloWorld');
+      helloWorld.addEventListener('click',()=>{
+        setTimeout(changeColor, 3000)
+      })
+
+      function changeColor(){
+        helloWorld = document.getElementById('helloWorld')
+        helloWorld.style.color = `rgb(${x()},${x()},${x()})`
+      }
+
+      function x(){
+        return Math.floor(Math.random()*256);
+      }
+    
 
     // 12. Walk the DOM
     // Define function walkTheDOM(node, func)
     // This function should traverse every node in the DOM. Use recursion.
     // On each node, call func(node).
+
+    function walkTheDOM(node, func) {
+    func(node);
+    node = node.firstChild;
+    while (node) {
+        walkTheDOM(node, func);
+        node = node.nextSibling;
+    }
+}
+
+walkTheDOM(document.documentElement, function(node){
+  if (node.nodeName){
+    console.log(node.nodeName);
+  }
+})
+
   </script>
 
 </body>
