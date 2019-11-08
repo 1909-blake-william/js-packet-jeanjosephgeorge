@@ -230,9 +230,7 @@ function getCheckedColorRadio() {
 
 function getCheckedColorText() {
     let checkedColorRadio = getCheckedColorRadio();
-    return checkedColorRadio.nextSibling ? checkedColorRadio.nextSibling.textContent : 'Anything';
-    // Alternate guard operator verion. Will return null instead of 'Anything':
-    // return checkedColorRadio.nextSibling && checkedColorRadio.nextSibling.textContent; 
+    return checkedColorRadio.nextSibling ? checkedColorRadio.nextSibling.textContent : 'this';
 }
 
 function changeRadioBackgroundColor(colorRadio, newColorAttribute) {

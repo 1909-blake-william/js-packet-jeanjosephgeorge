@@ -179,14 +179,41 @@ function printShape(shape, height, character){
             
             break;
         case "diamond":
+            let dmd = []
+            for(let i = 0; i<h; i++){
+                dmd.push('');
+            }
+            console.log(dmd.length);
+            let max = (Math.ceil(h/2))
+            let min = (Math.floor(h/2))
+            
+            console.log(symbol(5)+ '.')
 
+            for (let e = 0; e<max; e++){
+                dmd[e] = space(max-1-e) + symbol(e+1)
+                dmd[h-e-1] = space(min-1-e) + symbol(e+1)
+            }
+
+            console.log(dmd)
 
             function space(num){
-
+                let space =''
+                for(let j =0; j<num; j++){
+                    space += ' ';
+                }
+                return space;
             }
             
             function symbol(num2){
-
+                let startSymbol = '';
+                let symbol = '';
+                for (let k=0; k<num2*2; k++){
+                    startSymbol += c
+                    if(k%2 == 0){
+                        symbol += startSymbol
+                    }
+                }
+                return symbol;
             }
             break;
     
