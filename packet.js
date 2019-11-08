@@ -183,13 +183,13 @@ function printShape(shape, height, character){
             for(let i = 0; i<h; i++){
                 dmd.push('');
             }
-            console.log(dmd.length);
+
             let max = (Math.ceil(h/2))
             let min = (Math.floor(h/2))
             
             for (let e = 0; e<max; e++){
                 dmd[e] = space(max-1-e) + symbol(e+1)
-                dmd[h-e-1] = space(min-1-e) + symbol(e+1)
+                dmd[h-e-1] = space(max-1-e) + symbol(e+1)
             }
 
             function space(num){
